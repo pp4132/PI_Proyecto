@@ -1,0 +1,148 @@
+.contenedor_trivia {
+    width: 90%;
+    max-width: 750px;
+
+    margin: 50px auto 120px;
+
+    text-align: center;
+}
+
+
+/* TÍTULO */
+
+.contenedor_trivia h1 {
+    color: #D50032;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+.contenedor_trivia > p {
+    color: #555;
+
+    margin-bottom: 35px;
+}
+
+
+/* TARJETA DE LA PREGUNTA */
+
+.pregunta {
+    background-color: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    text-align: center;
+}
+
+
+/* PREGUNTA */
+
+.pregunta h2 {
+    color: #222;
+
+    font-size: 22px;
+
+    margin-bottom: 30px;
+}
+
+
+/* OPCIONES */
+
+.pregunta label {
+    display: block;
+
+    width: 80%;
+
+    margin: 12px auto;
+
+    padding: 14px;
+
+    background-color: #f5f5f5;
+
+    border: 2px solid transparent;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* HOVER */
+
+.pregunta label:hover {
+    background-color: #fff3f5;
+
+    border-color: #D50032;
+}
+
+
+/* RADIO */
+
+.pregunta input {
+    margin-right: 10px;
+}
+
+
+/* BOTÓN */
+
+.boton_siguiente {
+    margin-top: 25px;
+
+    padding: 12px 30px;
+
+    background-color: #D50032;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.boton_siguiente:hover {
+    background-color: #B8002B;
+
+    transform: translateY(-2px);
+}
+
+
+/* CELULAR */
+
+@media(max-width: 600px) {
+
+    .contenedor_trivia {
+        width: 92%;
+
+        margin-top: 30px;
+    }
+
+    .pregunta {
+        padding: 25px 15px;
+    }
+
+    .pregunta h2 {
+        font-size: 19px;
+    }
+
+    .pregunta label {
+        width: 100%;
+    }
+
+}

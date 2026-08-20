@@ -1,0 +1,366 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, Roboto ;
+}
+.header_principal{
+    background-image: url('Estadio.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 170px;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    padding: 12px;
+
+}
+.nav_header{
+    font-weight: 900;
+    display: flex;
+    gap: 20px;
+}
+
+.nav_header a{
+    text-decoration: none;
+    color:black;
+    background-color: white;
+}
+
+.nav_header a:hover{
+    color:green;
+}
+
+
+body{
+    background-color: #FFF;
+    
+}
+
+/*Pestaña de usuario*/
+
+.usuario_pestana {
+    position: fixed;
+    right: 0;
+    top: 45%;
+
+    width: 50px;
+    height: 60px;
+
+    border: none;
+    border-radius: 10px 0 0 10px;
+
+    background-color: #D50032;
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.25);
+
+    z-index: 1001;
+
+    transition: width 0.2s ease,
+                background-color 0.2s ease;
+}
+
+
+/* Efecto al pasar el mouse */
+
+.usuario_pestana:hover {
+    width: 60px;
+    background-color: #b8002b;
+}
+
+
+/*Panel lateral*/
+
+.panel_usuario {
+    position: fixed;
+
+    top: 0;
+    right: -350px;
+
+    width: 350px;
+    height: 100vh;
+
+    padding: 30px;
+
+    background-color: white;
+
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.25);
+
+    z-index: 1000;
+
+    transition: right 0.35s ease;
+}
+
+
+/* Panel abierto */
+
+.panel_usuario.activo {
+    right: 0;
+}
+
+
+/*Botón cerrar*/
+
+.cerrar_panel {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    color: #333;
+}
+
+.cerrar_panel:hover {
+    color: #D50032;
+}
+
+
+/*Lo de adentro*/
+
+.panel_usuario h2 {
+    text-align: center;
+
+    margin-top: 20px;
+    margin-bottom: 35px;
+
+    color: #D50032;
+}
+
+
+/* Enlaces del panel */
+
+.opciones_cuenta a {
+    display: block;
+
+    text-align: center;
+
+    padding: 13px;
+
+    margin-top: 15px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    color: white;
+
+    background-color: #D50032;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.opciones_cuenta a:hover {
+    background-color: #b8002b;
+
+    transform: translateY(-2px);
+}
+
+
+/*Botón para la historia completa*/
+.boton_historia {
+    position: fixed;
+
+    left: 20px;
+    bottom: 20px;
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #D50032;
+
+    color: white;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+
+    z-index: 999;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.boton_historia:hover {
+    background-color: #b8002b;
+
+    transform: scale(1.1);
+}
+
+/*Botón para el chat*/
+/* Separador del panel */
+
+.panel_usuario hr {
+
+    margin: 30px 0 20px;
+
+    border: none;
+
+    border-top: 1px solid #ddd;
+}
+
+
+/* Título de comunidad */
+
+.panel_usuario h3 {
+
+    color: #333;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+
+/* Enlaces de comunidad */
+
+.accesos_comunidad {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.accesos_comunidad a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 0;
+
+    padding: 10px;
+
+    background-color: transparent;
+
+    color: #333;
+
+    text-align: left;
+
+    border-radius: 7px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.accesos_comunidad a:hover {
+
+    background-color: #D50032;
+
+    color: white;
+
+    transform: none;
+}
+
+
+/* Iconos */
+
+.icono_acceso {
+
+    width: 35px;
+
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #D50032;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+}
+
+
+.accesos_comunidad a:hover .icono_acceso {
+
+    background-color: white;
+
+}
+
+
+
+/*Pie de página*/
+footer{
+    background-color: #93C572;
+    display: flex;
+    padding: 15px;
+    justify-content:space-evenly;
+    align-items:baseline;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.section_footer{
+    padding: 5px;
+}
+
+.nav_footer{
+    display: flex;
+    gap: 20px;
+}
+
+.nav_footer a{
+    text-decoration: none;
+    color:black;
+}
+
+.nav_footer a:hover{
+    color:yellow;
+}
+
+
+@media(max-width: 468px){
+    .header_principal, .img_header{
+        flex-direction: column;
+    }
+    .header_principal{
+        height: 200px;
+    }
+    .nav_header, .nav_footer{
+        margin-top: 13px;
+        align-items: center;
+    }
+}

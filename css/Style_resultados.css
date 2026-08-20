@@ -1,0 +1,154 @@
+.seccion_resultados {
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 40px auto 120px;
+}
+
+.seccion_resultados h1 {
+    text-align: center;
+
+    color: #D50032;
+
+    margin-bottom: 35px;
+}
+
+
+/* CONTENEDOR */
+
+.contenedor_resultados {
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* TARJETA */
+
+.tarjeta_resultado {
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 20px 25px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.tarjeta_resultado:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 7px 16px rgba(0,0,0,0.2);
+}
+
+
+/* CABECERA */
+
+.cabecera_resultado {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+.cabecera_resultado strong {
+    color: #D50032;
+}
+
+
+/* EQUIPOS */
+
+.equipos_resultado {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 30px;
+}
+
+
+/* EQUIPO */
+
+.equipo_resultado {
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.equipo_resultado img {
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+}
+
+.equipo_resultado h2 {
+    font-size: 18px;
+
+    margin: 0;
+
+    text-align: center;
+}
+
+
+/* MARCADOR */
+
+.marcador {
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #333;
+}
+
+.marcador.ganador {
+    color: #D50032;
+}
+
+
+/* SEPARADOR */
+
+.separador {
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #777;
+}
+
+
+/* ESTADIO */
+
+.estadio_resultado {
+    text-align: center;
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #ddd;
+
+    color: #666;
+
+    font-size: 14px;
+}

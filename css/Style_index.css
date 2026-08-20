@@ -1,0 +1,25 @@
+.section_main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 17px;
+}
+.presentacion{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 17px;
+}
+
+
+@media(max-width: 468px){
+    .section_main, .presentacion{
+        flex-direction: column;
+    }
+    .section_main{
+        margin-top: 13px;
+        align-items: center;
+    }
+    
+}

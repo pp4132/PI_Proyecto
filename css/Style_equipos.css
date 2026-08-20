@@ -1,0 +1,124 @@
+.catalogo_equipos {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto 120px;
+    text-align: center;
+}
+
+.catalogo_equipos h1 {
+    color: #D50032;
+    text-align: justify;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.descripcion_catalogo {
+    color: #555;
+    margin-bottom: 35px;
+    text-align: justify;
+}
+
+
+/* Contenedor de las tarjetas */
+
+.contenedor_equipos {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Tarjeta */
+
+.tarjeta_equipo {
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    text-decoration: none;
+    color: black;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Efecto al pasar el mouse */
+
+.tarjeta_equipo:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Logo */
+
+.logo_equipo {
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+}
+
+.logo_equipo img {
+    max-width: 150px;
+    max-height: 150px;
+
+    object-fit: contain;
+}
+
+
+/* Información */
+
+.info_equipo h2 {
+    color: #D50032;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.info_equipo p {
+    color: #555;
+
+    line-height: 1.5;
+}
+
+
+/*Para moviles*/
+
+@media (max-width: 900px) {
+
+    .contenedor_equipos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .contenedor_equipos {
+        grid-template-columns: 1fr;
+    }
+
+    .catalogo_equipos {
+        width: 92%;
+        margin-top: 25px;
+    }
+
+}

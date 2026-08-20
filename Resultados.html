@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resultados</title>
+        <link rel="stylesheet" href="css/StyleGeneral.css">
+        <link rel="stylesheet" href="css/Style_resultados.css">
+
+    </head>
+    <body>
+        <!--Encabezado principal-->
+        <header class="header_principal">
+            <a href="Index.html">
+                <img class="img_header" src="img/Logo ND.jpeg" alt="Logo de la página" width="90">
+            </a>
+            <nav class="nav_header">
+                <a href="Index.html"><strong>Inicio</strong></a>
+                <a href="Equipos.html"><strong>Equipos</strong></a>
+                <a href="Noticias.html"><strong>Noticias</strong></a>
+                <a href="Resultados.html"><strong>Resultados</strong></a>
+            </nav>
+        </header>
+
+        <main>
+            
+            <div class="usuario_contenedor">
+
+                <button class="usuario_pestana" id="botonUsuario">
+                    ◄
+                </button>
+
+
+                <aside class="panel_usuario" id="panelUsuario">
+
+                    <button class="cerrar_panel" id="cerrarPanel">
+                        ×
+                    </button>
+
+
+                    <h2>Mi cuenta</h2>
+
+
+                    <section class="opciones_cuenta">
+
+                        <a href="Login.html">
+                            Iniciar sesión
+                        </a>
+
+                        <a href="Registro.html">
+                            Registrarse
+                        </a>
+
+                    </section>
+
+
+                    <hr>
+
+
+                    <h3>Comunidad</h3>
+
+
+                    <section class="accesos_comunidad">
+
+                        <a href="Conversaciones.html">
+
+                            <span class="icono_acceso">
+                                💬
+                            </span>
+
+                            <span>
+                                Chat
+                            </span>
+
+                        </a>
+
+
+                        <a href="Historia.html">
+
+                            <span class="icono_acceso">
+                                ⚾
+                            </span>
+
+                            <span>
+                                Historia
+                            </span>
+
+                        </a>
+
+                    </section>
+
+                </aside>
+
+            </div>
+
+
+
+             <a href="Historia.html" class="boton_historia" title="Historia del béisbol">
+                ⚾
+            </a>
+
+
+            <!--Los Resultados-->
+            <section class="seccion_resultados">
+
+                <h1>Resultados</h1>
+
+                <div class="contenedor_resultados">
+
+                    <!-- Partido 1 -->
+
+                    <div class="tarjeta_resultado">
+
+                        <div class="cabecera_resultado">
+
+                            <span>
+                                19 de agosto de 2026
+                            </span>
+
+                            <strong>
+                                FINAL
+                            </strong>
+
+                        </div>
+
+
+                        <div class="equipos_resultado">
+
+                            <div class="equipo_resultado">
+
+                                <img
+                                    src="img/Equipos/Sultanes.svg"
+                                    alt="Sultanes de Monterrey"
+                                >
+
+                                <h2>
+                                    Sultanes de Monterrey
+                                </h2>
+
+                                <span class="marcador ganador">
+                                    5
+                                </span>
+
+                            </div>
+
+
+                            <span class="separador">
+                                -
+                            </span>
+
+
+                            <div class="equipo_resultado">
+
+                                <img
+                                    src="img/Equipos/Acereros.svg"
+                                    alt="Acereros de Monclova"
+                                >
+
+                                <h2>
+                                    Acereros de Monclova
+                                </h2>
+
+                                <span class="marcador">
+                                    3
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="estadio_resultado">
+
+                            Estadio Mobil Super
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Partido 2 -->
+
+                    <div class="tarjeta_resultado">
+
+                        <div class="cabecera_resultado">
+
+                            <span>
+                                18 de agosto de 2026
+                            </span>
+
+                            <strong>
+                                FINAL
+                            </strong>
+
+                        </div>
+
+
+                        <div class="equipos_resultado">
+
+                            <div class="equipo_resultado">
+
+                                <img
+                                    src="img/Equipos/Saraperos.jpg"
+                                    alt="Saraperos de Saltillo"
+                                >
+
+                                <h2>
+                                    Saraperos de Saltillo
+                                </h2>
+
+                                <span class="marcador">
+                                    2
+                                </span>
+
+                            </div>
+
+
+                            <span class="separador">
+                                -
+                            </span>
+
+
+                            <div class="equipo_resultado">
+
+                                <img
+                                    src="img/Equipos/Algodoneros.svg"
+                                    alt="Algodoneros del Unión Laguna"
+                                >
+
+                                <h2>
+                                    Algodoneros del Unión Laguna
+                                </h2>
+
+                                <span class="marcador ganador">
+                                    6
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="estadio_resultado">
+
+                            Estadio Francisco I. Madero
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+        
+        </main>
+
+        <footer>
+            <section class="section_footer">
+                <div><b>Contacto</b></div>
+                <p>Tel: 01-23-45-67-89</p>
+                <p>Prototipo@gmail.com</p>
+            </section>
+            <section class="section_footer">
+                <div><b>Redes sociales</b></div>
+                <nav class="nav_footer">
+                    <p><a href="">Facebook</a></p>
+                    <p><a href="">Youtube</a></p>
+                </nav>
+            </section>
+        </footer>
+
+        <script src="js/Usuario_pestaña.js"></script>
+    </body>
+</html>

@@ -1,0 +1,184 @@
+.seccion_chat {
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 40px auto 120px;
+
+}
+
+
+.seccion_chat h1 {
+
+    text-align: center;
+
+    color: #D50032;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.descripcion_chat {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* CONTENEDOR */
+
+.contenedor_temas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+/* TARJETA */
+
+.tema_chat {
+
+    min-height: 260px;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    color: black;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,0.15);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.tema_chat:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,0.25);
+
+}
+
+
+/* ICONO */
+
+.icono_tema {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    background-color: #D50032;
+
+    color: white;
+
+    font-size: 30px;
+
+}
+
+
+/* TÍTULO */
+
+.informacion_tema h2 {
+
+    color: #D50032;
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* DESCRIPCIÓN */
+
+.informacion_tema p {
+
+    color: #555;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* NÚMERO DE CONVERSACIONES */
+
+.informacion_tema span {
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+
+/* TABLET */
+
+@media(max-width: 900px) {
+
+    .contenedor_temas {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* CELULAR */
+
+@media(max-width: 600px) {
+
+    .contenedor_temas {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
