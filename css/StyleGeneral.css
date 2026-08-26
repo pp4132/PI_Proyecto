@@ -1,3 +1,4 @@
+/*Encabezado principal*/
 *{
     padding: 0;
     margin: 0;
@@ -9,29 +10,53 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 170px;
+    width: 100%;
+    height: 175px;
     display:flex;
-    justify-content: space-around;
+    justify-content:flex-end;
+    flex-direction: column;
     align-items:center;
     padding: 12px;
 
 }
-.nav_header{
-    font-weight: 900;
-    display: flex;
-    gap: 20px;
+
+.header_principal > a {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.nav_header a{
-    text-decoration: none;
-    color:black;
+.img_header{
+    display: block;
+    width: 100px;
+    height: auto;
+}
+
+.nav_header {
+    width: auto;
+    display:flex;
+    align-self: flex-end;
+    margin-top: auto;
     background-color: white;
 }
 
-.nav_header a:hover{
-    color:green;
+.nav_header a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 14px;
+    font-weight: 900;
+    border-right: 1px solid #ccc;
 }
 
+.nav_header a:last-child {
+    border-right: none;
+}
+
+.nav_header a:hover {
+    color: green;
+    background-color: #eeeeee;
+}
 
 body{
     background-color: #FFF;
@@ -209,13 +234,13 @@ main {
         background-color 0.2s ease;
 }
 
+/*Botón para el chat*/
 .boton_historia:hover {
     background-color: #b8002b;
 
     transform: scale(1.1);
 }
 
-/*Botón para el chat*/
 /* Separador del panel */
 
 .panel_usuario hr {

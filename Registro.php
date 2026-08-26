@@ -19,7 +19,7 @@
 
     <!-- Botón para regresar -->
 
-    <a href="Index.html" class="boton_regresar">
+    <a href="Index.php" class="boton_regresar">
         ← Regresar
     </a>
 
@@ -134,7 +134,7 @@
 
                 ¿Ya tienes una cuenta?
 
-                <a href="InicioSesion.html">
+                <a href="InicioSesion.php">
                     Inicia sesión
                 </a>
 

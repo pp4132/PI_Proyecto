@@ -19,44 +19,12 @@
 </head>
 
 <body>
-
-    <header class="header_principal">
-
-        <a href="Index.html">
-
-            <img
-                class="img_header"
-                src="img/Logo ND.jpeg"
-                alt="Logo de la página"
-                width="90"
-            >
-
-        </a>
-
-        <nav class="nav_header">
-
-            <a href="Index.html">
-                <strong>Inicio</strong>
-            </a>
-
-            <a href="Equipos.html">
-                <strong>Equipos</strong>
-            </a>
-
-            <a href="Noticias.html">
-                <strong>Noticias</strong>
-            </a>
-
-            <a href="Resultados.html">
-                <strong>Resultados</strong>
-            </a>
-
-        </nav>
-
-    </header>
+    <!--Encabezado-->
+    <?php include('Header.php')?>
 
 
     <main class="galeria">
+        <?php include('SideBar&Buttons.php')?>
 
         <h1>Galería</h1>
 
@@ -118,33 +86,7 @@
     </main>
 
 
-    <footer>
-
-        <section class="section_footer">
-
-            <div><b>Contacto</b></div>
-
-            <p>Tel: 01-23-45-67-89</p>
-
-            <p>Prototipo@gmail.com</p>
-
-        </section>
-
-        <section class="section_footer">
-
-            <div><b>Redes sociales</b></div>
-
-            <nav class="nav_footer">
-
-                <p><a href="">Facebook</a></p>
-
-                <p><a href="">Youtube</a></p>
-
-            </nav>
-
-        </section>
-
-    </footer>
+    <?php include('Footer.php')?>
 
 
     <script src="js/Usuario_pestaña.js"></script>

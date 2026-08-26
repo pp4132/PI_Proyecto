@@ -11,94 +11,11 @@
     </head>
     <body>
         <!--Encabezado principal-->
-        <header class="header_principal">
-            <a href="Index.html">
-                <img class="img_header" src="img/Logo ND.jpeg" alt="Logo de la página" width="90">
-            </a>
-            <nav class="nav_header">
-                <a href="Index.html"><strong>Inicio</strong></a>
-                <a href="Equipos.html"><strong>Equipos</strong></a>
-                <a href="Noticias.html"><strong>Noticias</strong></a>
-                <a href="Resultados.html"><strong>Resultados</strong></a>
-            </nav>
-        </header>
+        <?php include('Header.php')?>
 
         <main>
             
-            <div class="usuario_contenedor">
-
-                <button class="usuario_pestana" id="botonUsuario">
-                    ◄
-                </button>
-
-
-                <aside class="panel_usuario" id="panelUsuario">
-
-                    <button class="cerrar_panel" id="cerrarPanel">
-                        ×
-                    </button>
-
-
-                    <h2>Mi cuenta</h2>
-
-
-                    <section class="opciones_cuenta">
-
-                        <a href="Login.html">
-                            Iniciar sesión
-                        </a>
-
-                        <a href="Registro.html">
-                            Registrarse
-                        </a>
-
-                    </section>
-
-
-                    <hr>
-
-
-                    <h3>Comunidad</h3>
-
-
-                    <section class="accesos_comunidad">
-
-                        <a href="Conversaciones.html">
-
-                            <span class="icono_acceso">
-                                💬
-                            </span>
-
-                            <span>
-                                Chat
-                            </span>
-
-                        </a>
-
-
-                        <a href="Historia.html">
-
-                            <span class="icono_acceso">
-                                ⚾
-                            </span>
-
-                            <span>
-                                Historia
-                            </span>
-
-                        </a>
-
-                    </section>
-
-                </aside>
-
-            </div>
-
-
-
-             <a href="Historia.html" class="boton_historia" title="Historia del béisbol">
-                ⚾
-            </a>
+           <?php include('SideBar&Buttons.php')?>
 
 
             <!--Los Resultados-->
@@ -255,20 +172,7 @@
         
         </main>
 
-        <footer>
-            <section class="section_footer">
-                <div><b>Contacto</b></div>
-                <p>Tel: 01-23-45-67-89</p>
-                <p>Prototipo@gmail.com</p>
-            </section>
-            <section class="section_footer">
-                <div><b>Redes sociales</b></div>
-                <nav class="nav_footer">
-                    <p><a href="">Facebook</a></p>
-                    <p><a href="">Youtube</a></p>
-                </nav>
-            </section>
-        </footer>
+        <?php include('Footer.php')?>
 
         <script src="js/Usuario_pestaña.js"></script>
     </body>
