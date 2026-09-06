@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Realidad Aumentada - Béisbol Mexicano</title>
+    <title>Realidad Aumentada</title>
     <link rel="stylesheet" href="css/Style_RA.css">
 
 </head>
 
 <body>
 
-    <h1>⚾ Realidad Aumentada</h1>
+    <h1>Realidad Aumentada</h1>
 
     <div id="camera-container">
 
