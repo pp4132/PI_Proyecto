@@ -9,6 +9,8 @@
         <a href="Equipos.php"><strong>Equipos</strong></a>
         <a href="Noticias.php"><strong>Noticias</strong></a>
         <a href="Resultados.php"><strong>Resultados</strong></a>
+        <a href="Juego.php"><strong>Videojuego</strong></a>
+        <a href="Galeria.php"><strong>Galería</strong></a>
     </nav>
 
 </header>

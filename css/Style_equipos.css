@@ -20,7 +20,6 @@
 
 
 /* Contenedor de las tarjetas */
-
 .contenedor_equipos {
     display: grid;
 
@@ -31,7 +30,6 @@
 
 
 /* Tarjeta */
-
 .tarjeta_equipo {
     display: flex;
     flex-direction: column;
@@ -98,6 +96,44 @@
     line-height: 1.5;
 }
 
+/*Botón de trivia*/
+.boton_AR {
+    position: fixed;
+
+    right: 20px;
+    bottom: 450px;
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #D50032;
+
+    color: white;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+
+    z-index: 999;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.boton_AR:hover {
+    background-color: #b8002b;
+    transform: scale(1.1);
+}
 
 /*Para moviles*/
 

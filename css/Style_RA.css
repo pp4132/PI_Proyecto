@@ -1,0 +1,85 @@
+ * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        #camera-container {
+            width: 90%;
+            max-width: 800px;
+            aspect-ratio: 4 / 3;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: #000;
+        }
+
+        /* Cámara */
+        #camera {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        /* Canvas donde aparece el modelo 3D */
+        #three-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        #three-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #006847;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005239;
+        }
+
+        #capture {
+            background: #ce1126;
+        }
+
+        #capture:hover {
+            background: #a90d20;
+        }
+
+        #download {
+            display: none;
+            background: #444;
+        }

@@ -18,6 +18,11 @@
 
             <?php include('SideBar&Buttons.php')?>
 
+            <a href="RealidadAumentada.php" class="boton_AR" title="Realidad_aumentada">
+                📷
+            </a>
+
+
             <section class="catalogo_equipos">
 
                 <h1>Equipos de la Zona Norte</h1>
