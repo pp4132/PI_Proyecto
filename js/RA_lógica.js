@@ -198,7 +198,7 @@ controls.maxDistance = 8;
 // Cargar modelos 3D
 /* 
     Se deben de ingresar en la carpeta Modelos tanto el .obj como el .mtl
-    Nora: de momento solo se puede ingresar un modelo a la vez, ya luego modifico eso
+    Nota: de momento solo se puede ingresar un modelo a la vez, ya luego modifico eso
 */
 let model=null;
 

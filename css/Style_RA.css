@@ -1,85 +1,86 @@
- * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-            text-align: center;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    text-align: center;
+}
 
-        h1 {
-            margin: 20px 0;
-        }
+h1 {
+    margin: 18px 0;
+}
 
-        #camera-container {
-            width: 90%;
-            max-width: 800px;
-            aspect-ratio: 4 / 3;
-            margin: auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            background: #000;
-        }
+#camera-container {
+    width: 90%;
+    max-width: 350px;
+    aspect-ratio: 2 / 3;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+     border-radius: 15px;
+    background: #D2D2CF;
+}
 
-        /* Cámara */
-        #camera {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            left: 0;
-            top: 0;
-            z-index: 1;
-        }
+/* Cámara */
+#camera {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
 
-        /* Canvas donde aparece el modelo 3D */
-        #three-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            z-index: 2;
-            pointer-events: auto;
-        }
+/* Canvas donde aparece el modelo 3D */
+#three-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    pointer-events: auto;
+}
 
-        #three-container canvas {
-            width: 100% !important;
-            height: 100% !important;
-        }
+#three-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
 
-        .controls {
-            margin-top: 20px;
-        }
+.controls {
+    margin-top: 20px;
+}
 
-        button {
-            margin: 5px;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            background: #006847;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
+button {
+    margin: 5px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #006847;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-        button:hover {
-            background: #005239;
-        }
+button:hover {
+    background: #01c68b;
+}
 
-        #capture {
-            background: #ce1126;
-        }
+#capture {
+    display: flexbox;
+    background: #b6012b;
+}
 
-        #capture:hover {
-            background: #a90d20;
-        }
+#capture:hover {
+    background: #D50032;
+}
 
-        #download {
-            display: none;
-            background: #444;
-        }
+#download {
+    display: none;
+    background: #444;
+}

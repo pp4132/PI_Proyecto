@@ -11,7 +11,7 @@
 
 <body>
 
-    <h1>Realidad Aumentada</h1>
+    <h1>Escaner</h1>
 
     <div id="camera-container">
 
@@ -33,7 +33,7 @@
         </button>
 
         <button id="capture">
-            📸 Capturar
+            📸
         </button>
 
         <button id="download">
