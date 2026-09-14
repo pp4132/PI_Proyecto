@@ -14,13 +14,6 @@
     <h1>Escaner</h1>
 
     <div id="camera-container">
-
-        <!-- Cámara -->
-        <video id="camera" autoplay playsinline></video>
-
-        <!-- Modelo 3D -->
-        <div id="three-container"></div>
-
     </div>
 
     <div class="controls">
@@ -43,13 +36,23 @@
     </div>
 
      <!-- Three.js -->
-    <script type="importmap">
+       <script type="importmap">
+
     {
         "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+
+            "three":
+                "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+
+            "three/addons/":
+                "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+
+            "mindar-image-three":
+                "https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"
+
         }
     }
+
     </script>
 
     <!-- JavaScript principal -->
