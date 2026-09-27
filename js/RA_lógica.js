@@ -19,6 +19,12 @@ const startCameraButton =
 const stopCameraButton =
     document.getElementById("stopCamera");
 
+const particleButton =
+    document.getElementById("particulas");
+
+const animationButton =
+    document.getElementById("animacion");
+
 const captureButton =
     document.getElementById("capture");
 
@@ -34,6 +40,10 @@ const mindarThree =
             //el archivo que contiene las imágenes que se usarán como marcador,
             //pueden ser varias imágenes, pero por ahora solo son 3.
 });
+
+//Variables para habilitar o deshabilitar las partículas y la animación de los modelos
+let particlesEnabled = false;
+let animationEnabled = false;
 
 
 // THREE.JS
@@ -55,32 +65,45 @@ const targets = [
 
     {
         index: 0,
-        obj: "Modelos/cubo/cubo.obj", //Estas son las rutas a modificar
+        obj: "Modelos/cubo/cubo.obj",
         mtl: "Modelos/cubo/cubo.mtl",
         scale: 0.5,
-        particleColor: 0x00ffff,
-        particleCount: 1000
+
+        particles: {
+            color: 0x00ffff,
+            count: 5000,
+            size: 0.04
+        }
     },
+
     {
         index: 1,
-        obj: "Modelos/esfera/esfera.obj", //Estas son las rutas a modificar
+        obj: "Modelos/esfera/esfera.obj",
         mtl: "Modelos/esfera/esfera.mtl",
         scale: 0.5,
-        particleColor: 0xFF0000 ,
-        particleCount: 2000
+
+        particles: {
+            color: 0xFFFF00,
+            count: 2000,
+            size: 0.06
+        }
     },
+
     {
         index: 2,
-        obj: "Modelos/cilindro/cilindro.obj", //Estas son las rutas a modificar
+        obj: "Modelos/cilindro/cilindro.obj",
         mtl: "Modelos/cilindro/cilindro.mtl",
         scale: 0.5,
-        particleColor: 0xFFFFF,
-        particleCount: 1000
-    }
-    
 
+        particles: {
+            color: 0xffff00,
+            count: 1500,
+            size: 0.03
+        }
+    }
 
 ];
+
 
 // Anchors
 const anchors = [];
@@ -183,6 +206,8 @@ function cargarModelo(target,anchor) {
                             anchor
                         );
 
+                    particles.visible = false;
+
 
                     particleSystems.push(
                         particles
@@ -214,7 +239,7 @@ function cargarModelo(target,anchor) {
 // PARTÍCULAS
 function crearParticulas(target, anchor) {
 
-    const particleCount = target.particleCount;
+    const particleCount = target.particles.count;
     const positions =
         new Float32Array(
             particleCount * 3
@@ -264,8 +289,8 @@ function crearParticulas(target, anchor) {
 
     const material =
         new THREE.PointsMaterial({
-            color: target.particleColor,
-            size: 0.04,
+            color: target.particles.color,
+            size: target.particles.size,
 
             transparent: true,
 
@@ -338,21 +363,30 @@ function actualizarParticulas() {
 // Actualizar modelos
 function actualizarModelos() {
 
+    if (!animationEnabled) {
+        return;
+    }
+
     anchors.forEach(anchor => {
+
         anchor.group.traverse(
             object => {
+
                 if (
                     object.userData
                         .isARModel
                 ) {
 
-                    object.rotation.y
-                        += 0.01;
+                    object.rotation.y += 0.01;
+
                 }
+
             }
         );
+
     });
 }
+
 
 
 //Encender cámara para la realidad aumentada
@@ -374,12 +408,17 @@ startCameraButton.addEventListener(
 
             startCameraButton.style.display = "none";
             stopCameraButton.style.display = "inline-block";
+            particleButton.style.display ="inline-block";
+            animationButton.style.display ="inline-block";
            
             renderer.setAnimationLoop(
                 () => {
 
                     actualizarModelos();
-                    actualizarParticulas();
+                    if (particlesEnabled) {
+                        actualizarParticulas();
+                    }
+
 
                     renderer.render(
                         scene,
@@ -418,6 +457,8 @@ stopCameraButton.addEventListener(
 
             startCameraButton.style.display = "inline-block";
             stopCameraButton.style.display = "none";
+            particleButton.style.display ="none";
+            animationButton.style.display ="none";
 
             console.log("AR detenido");
 
@@ -506,6 +547,41 @@ captureButton.addEventListener(
         };
     }
 );
+
+//Botón de partículas
+particleButton.addEventListener("click", () => {
+
+    particlesEnabled = !particlesEnabled;
+
+    particleSystems.forEach(particles => {
+
+        particles.visible = particlesEnabled;
+
+    });
+
+    particleButton.textContent =
+        particlesEnabled
+            ? "✨ Ocultar partículas"
+            : "✨ Mostrar partículas";
+
+});
+
+//Botón de animación
+animationButton.addEventListener(
+    "click",
+    () => {
+
+        animationEnabled =
+            !animationEnabled;
+
+        animationButton.textContent =
+            animationEnabled
+                ? "⏸️ Detener animación"
+                : "🔄 Activar animación";
+
+    }
+);
+
 
 
 

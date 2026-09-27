@@ -25,6 +25,13 @@
             🛑 Apagar cámara
         </button>
 
+        <button id="animacion" style="display:none;">
+            🔄 Activar animación
+        </button>
+        <button id="particulas" style="display:none;">
+              ✨ Partículas
+        </button>
+
         <button id="capture">
             📸
         </button>
