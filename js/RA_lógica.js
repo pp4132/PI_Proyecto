@@ -70,7 +70,7 @@ const targets = [
         scale: 0.5,
 
         particles: {
-            color: 0x00ffff,
+            color: 0x2EFFF7,
             count: 5000,
             size: 0.04
         }
@@ -78,12 +78,12 @@ const targets = [
 
     {
         index: 1,
-        obj: "Modelos/esfera/esfera.obj",
-        mtl: "Modelos/esfera/esfera.mtl",
+        obj: "Modelos/camiseta/jersey.obj",
+        mtl: "Modelos/camiseta/jersey.mtl",
         scale: 0.5,
 
         particles: {
-            color: 0xFFFF00,
+            color: 0xFF40DA,
             count: 2000,
             size: 0.06
         }
@@ -96,7 +96,7 @@ const targets = [
         scale: 0.5,
 
         particles: {
-            color: 0xffff00,
+            color: 0xBA1300,
             count: 1500,
             size: 0.03
         }
