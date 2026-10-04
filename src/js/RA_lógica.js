@@ -63,6 +63,7 @@ renderer.preserveDrawingBuffer = true;
 */
 const targets = [
 
+    // 🔥 FUEGO
     {
         index: 0,
         obj: "Modelos/cubo/cubo.obj",
@@ -70,12 +71,14 @@ const targets = [
         scale: 0.5,
 
         particles: {
-            color: 0x2EFFF7,
-            count: 5000,
-            size: 0.04
+            type: "fire",
+            color: 0xFF4500,
+            count: 3500,
+            size: 0.08
         }
     },
 
+    // 💨 HUMO
     {
         index: 1,
         obj: "Modelos/camiseta/jersey.obj",
@@ -83,12 +86,14 @@ const targets = [
         scale: 0.5,
 
         particles: {
-            color: 0xFF40DA,
-            count: 2000,
-            size: 0.06
+            type: "fire",
+            color: 0x00FF69,
+            count: 4500,
+            size: 0.50
         }
     },
 
+    // 💧 AGUA
     {
         index: 2,
         obj: "Modelos/cilindro/cilindro.obj",
@@ -96,9 +101,10 @@ const targets = [
         scale: 0.5,
 
         particles: {
-            color: 0xBA1300,
-            count: 1500,
-            size: 0.03
+            type: "water",
+            color: 0x00BFFF,
+            count: 3500,
+            size: 0.06
         }
     }
 
@@ -240,44 +246,78 @@ function cargarModelo(target,anchor) {
 function crearParticulas(target, anchor) {
 
     const particleCount = target.particles.count;
+
     const positions =
-        new Float32Array(
-            particleCount * 3
-        );
+        new Float32Array(particleCount * 3);
 
     const velocities =
-        new Float32Array(
-            particleCount * 3
-        );
+        new Float32Array(particleCount * 3);
 
-    for (
-        let i = 0;
-        i < particleCount;
-        i++
-    ) {
+    const type = target.particles.type;
+
+    for (let i = 0; i < particleCount; i++) {
 
         const i3 = i * 3;
+
+        // Posición inicial
         positions[i3] =
-            (Math.random() - 0.5) * 1.5;
+            (Math.random() - 0.5) * 1.2;
 
         positions[i3 + 1] =
-            Math.random() * 1.5 - 0.5;
+            Math.random() * 1.2 - 0.3;
 
         positions[i3 + 2] =
-            (Math.random() - 0.5) * 1.5;
+            (Math.random() - 0.5) * 1.2;
 
-        velocities[i3] =
-            (Math.random() - 0.5) * 0.003;
 
-        velocities[i3 + 1] =
-            Math.random() * 0.008 + 0.002;
+        //FUEGO
+        if (type === "fire") {
 
-        velocities[i3 + 2] =
-            (Math.random() - 0.5) * 0.003;
+            velocities[i3] =
+                (Math.random() - 0.5) * 0.006;
 
+            velocities[i3 + 1] =
+                Math.random() * 0.015 + 0.004;
+
+            velocities[i3 + 2] =
+                (Math.random() - 0.5) * 0.006;
+        }
+
+
+        //HUMO
+        else if (type === "smoke") {
+
+            velocities[i3] =
+                (Math.random() - 0.5) * 0.003;
+
+            velocities[i3 + 1] =
+                Math.random() * 0.006 + 0.001;
+
+            velocities[i3 + 2] =
+                (Math.random() - 0.5) * 0.003;
+        }
+
+
+        //AGUA
+        else if (type === "water") {
+
+            positions[i3 + 1] =
+                Math.random() * 1.5;
+
+            velocities[i3] =
+                (Math.random() - 0.5) * 0.008;
+
+            velocities[i3 + 1] =
+                -(Math.random() * 0.012 + 0.004);
+
+            velocities[i3 + 2] =
+                (Math.random() - 0.5) * 0.008;
+        }
     }
 
-    const geometry = new THREE.BufferGeometry();
+
+    const geometry =
+        new THREE.BufferGeometry();
 
     geometry.setAttribute(
         "position",
@@ -287,18 +327,37 @@ function crearParticulas(target, anchor) {
         )
     );
 
+
+    // Material diferente dependiendo del efecto
+    let blending =
+        THREE.AdditiveBlending;
+
+    let opacity = 0.9;
+
+
+    // El humo no debe brillar demasiado
+    if (type === "smoke") {
+        blending = THREE.NormalBlending;
+        opacity = 0.35;
+    }
+
+
     const material =
         new THREE.PointsMaterial({
-            color: target.particles.color,
-            size: target.particles.size,
+
+            color:
+                target.particles.color,
+
+            size:
+                target.particles.size,
 
             transparent: true,
 
-            opacity: 0.8,
+            opacity: opacity,
 
             depthWrite: false,
 
-            blending: THREE.AdditiveBlending
+            blending: blending
         });
 
 
@@ -308,56 +367,157 @@ function crearParticulas(target, anchor) {
             material
         );
 
-    particles.userData.velocities = velocities;
+
+    particles.userData.velocities =
+        velocities;
+
+    particles.userData.type =
+        type;
+
 
     anchor.group.add(
         particles
     );
 
+
     return particles;
 }
 
 
+
 // Actualizar partículas
 function actualizarParticulas() {
-    particleSystems.forEach(
-        particles => {
 
-            const positions =
-                particles.geometry
-                    .attributes
-                    .position
-                    .array;
+    particleSystems.forEach(particles => {
 
-
-            const velocities = particles.userData.velocities;
-            for (
-                let i = 0;
-                i < positions.length;
-                i += 3
-            ) {
-
-                positions[i] += velocities[i];
-
-                positions[i + 1] += velocities[i + 1];
-
-                positions[i + 2] += velocities[i + 2];
-
-                if (
-                    positions[i + 1] > 1.5
-                ) {
-                    positions[i + 1] =
-                        -0.5;
-                }
-            }
-
+        const positions =
             particles.geometry
                 .attributes
                 .position
-                .needsUpdate = true;
+                .array;
+
+        const velocities =
+            particles.userData.velocities;
+
+        const type =
+            particles.userData.type;
+
+
+        for (
+            let i = 0;
+            i < positions.length;
+            i += 3
+        ) {
+
+            // Movimiento
+            positions[i] += velocities[i];
+
+            positions[i + 1] +=
+                velocities[i + 1];
+
+            positions[i + 2] +=
+                velocities[i + 2];
+
+
+            // 🔥 FUEGO
+            if (type === "fire") {
+
+                // Movimiento irregular
+                positions[i] +=
+                    Math.sin(
+                        positions[i + 1] * 10
+                    ) * 0.002;
+
+                positions[i + 2] +=
+                    Math.cos(
+                        positions[i + 1] * 8
+                    ) * 0.002;
+
+
+                // Reiniciar
+                if (positions[i + 1] > 1.5) {
+
+                    positions[i] =
+                        (Math.random() - 0.5) * 0.8;
+
+                    positions[i + 1] =
+                        -0.4;
+
+                    positions[i + 2] =
+                        (Math.random() - 0.5) * 0.8;
+                }
+            }
+
+
+            // 💨 HUMO
+            else if (type === "smoke") {
+
+                // Movimiento suave
+                positions[i] +=
+                    Math.sin(
+                        positions[i + 1] * 4
+                    ) * 0.002;
+
+                positions[i + 2] +=
+                    Math.cos(
+                        positions[i + 1] * 5
+                    ) * 0.002;
+
+
+                // Reiniciar
+                if (positions[i + 1] > 1.7) {
+
+                    positions[i] =
+                        (Math.random() - 0.5) * 0.8;
+
+                    positions[i + 1] =
+                        -0.3;
+
+                    positions[i + 2] =
+                        (Math.random() - 0.5) * 0.8;
+                }
+            }
+
+
+            // 💧 AGUA
+            else if (type === "water") {
+
+                // Pequeña oscilación
+                positions[i] +=
+                    Math.sin(
+                        positions[i + 1] * 12
+                    ) * 0.001;
+
+                positions[i + 2] +=
+                    Math.cos(
+                        positions[i + 1] * 10
+                    ) * 0.001;
+
+
+                // Reiniciar cuando cae
+                if (positions[i + 1] < -0.6) {
+
+                    positions[i] =
+                        (Math.random() - 0.5) * 1.2;
+
+                    positions[i + 1] =
+                        1.5;
+
+                    positions[i + 2] =
+                        (Math.random() - 0.5) * 1.2;
+                }
+            }
         }
-    );
+
+
+        particles.geometry
+            .attributes
+            .position
+            .needsUpdate = true;
+
+    });
 }
+
 
 
 // Actualizar modelos
