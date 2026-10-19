@@ -5,6 +5,7 @@ const ctx = canvas.getContext("2d");
 
 const botonComenzar = document.getElementById("botonComenzar");
 const botonReiniciar = document.getElementById("botonReiniciar");
+const botonPausa = document.getElementById("botonPausa");
 
 const pantallaInicio = document.getElementById("pantallaInicio");
 const pantallaGameOver = document.getElementById("pantallaGameOver");
@@ -14,6 +15,7 @@ const vidasTexto = document.getElementById("vidas");
 const puntuacionFinal = document.getElementById("puntuacionFinal");
 
 // ESTADO DEL JUEGO
+let juegoPausado = false;
 let juegoActivo = false;
 let puntuacion = 0;
 let vidas = 3;
@@ -50,6 +52,15 @@ document.addEventListener("keyup", function(event) {
     teclas[event.key.toLowerCase()] = false;
 });
 
+window.addEventListener("blur", function() {
+    for (const tecla in teclas) {
+        teclas[tecla] = false;
+    }
+
+    tiempoDisparo = 0;
+});
+
+
 // ARRAYS
 let disparos = [];
 let disparosEnemigos = [];
@@ -79,11 +90,15 @@ function iniciarJuego() {
     jugador.x = 100;
     jugador.y = canvas.height / 2;
     disparos = [];
+    disparosEnemigos = [];
     enemigos = [];
     particulas = [];
     tiempoEnemigo = 0;
     tiempoDisparo = 0;
     juegoActivo = true;
+    juegoPausado = false;
+    botonPausa.disabled = false;
+    botonPausa.textContent = "Pausar";
     pantallaInicio.classList.add("oculto");
     pantallaGameOver.classList.add("oculto");
     actualizarMarcador();
@@ -94,23 +109,35 @@ function iniciarJuego() {
 // FINALIZAR JUEGO
 function terminarJuego() {
     juegoActivo = false;
-    puntuacionFinal.textContent =
-        "Puntos: " + puntuacion;
+    juegoPausado = false;
+
+    for (const tecla in teclas) {
+        teclas[tecla] = false;
+    }
+
+    puntuacionFinal.textContent = "Puntos: " + puntuacion;
     pantallaGameOver.classList.remove("oculto");
+    botonPausa.disabled = true;
 }
 
 // BUCLE PRINCIPAL
+
 function bucleJuego(tiempoActual) {
-    if (!juegoActivo) {
+    if (!juegoActivo || juegoPausado) {
         return;
     }
-    const delta =
-        (tiempoActual - ultimoTiempo) / 1000;
+
+    const delta = (tiempoActual - ultimoTiempo) / 1000;
     ultimoTiempo = tiempoActual;
+
     actualizar(delta);
     dibujar();
-    requestAnimationFrame(bucleJuego);
+
+    if (juegoActivo && !juegoPausado) {
+        requestAnimationFrame(bucleJuego);
+    }
 }
+
 
 // ACTUALIZACIÓN
 function actualizar(delta) {
@@ -125,7 +152,7 @@ function actualizar(delta) {
     comprobarEnemigosSalidos();
     actualizarDisparosEnemigos(delta);
     comprobarColisionesDisparosEnemigos();
-}
+}   
 
 // JUGADOR
 function moverJugador(delta) {
@@ -181,7 +208,6 @@ function moverJugador(delta) {
             jugador.x
         )
     );
-
     jugador.y = Math.max(
         20,
         Math.min(
@@ -191,11 +217,16 @@ function moverJugador(delta) {
     );
 }
 
-// DISPARO AUTOMÁTICO
+// DISPARO DEL JUGADOR
 function disparoAutomatico(delta) {
-    tiempoDisparo += delta;
-    if (tiempoDisparo >= 0.35) {
-        crearDisparo();
+    if (teclas[" "]) {
+        tiempoDisparo += delta;
+
+        if (tiempoDisparo >= 0.35) {
+            crearDisparo();
+            tiempoDisparo = 0;
+        }
+    } else {
         tiempoDisparo = 0;
     }
 }
@@ -545,7 +576,6 @@ function comprobarColisionesDisparosEnemigos() {
 // ============================================
 // ESTRELLAS
 // ============================================
-
 function actualizarEstrellas(delta) {
 
     for (const estrella of estrellas) {
@@ -567,11 +597,9 @@ function actualizarEstrellas(delta) {
 
 }
 
-
 // ============================================
 // COLISIONES
 // ============================================
-
 function comprobarColisiones() {
 
     // ----------------------------
@@ -688,11 +716,9 @@ function comprobarColisiones() {
 
 }
 
-
 // ============================================
 // COLISIÓN RECTANGULAR
 // ============================================
-
 function rectangulosColisionan(a, b) {
 
     return (
@@ -713,7 +739,6 @@ function rectangulosColisionan(a, b) {
 // ============================================
 // COLISIÓN CIRCULAR
 // ============================================
-
 function colisionCircular(
     x1,
     y1,
@@ -742,7 +767,6 @@ function colisionCircular(
 // ============================================
 // ENEMIGOS QUE PASAN
 // ============================================
-
 function comprobarEnemigosSalidos() {
 
     for (
@@ -768,7 +792,6 @@ function comprobarEnemigosSalidos() {
 // ============================================
 // PARTÍCULAS
 // ============================================
-
 function crearExplosion(x, y) {
 
     for (let i = 0; i < 12; i++) {
@@ -794,7 +817,6 @@ function crearExplosion(x, y) {
 
 
 function actualizarParticulas(delta) {
-
     for (
         let i = particulas.length - 1;
         i >= 0;
@@ -829,7 +851,6 @@ function actualizarParticulas(delta) {
 // ============================================
 // DIBUJAR TODO
 // ============================================
-
 function dibujar() {
 
     dibujarFondo();
@@ -848,7 +869,6 @@ function dibujar() {
 // ============================================
 // FONDO
 // ============================================
-
 function dibujarFondo() {
 
     ctx.fillStyle = "#02040a";
@@ -887,7 +907,6 @@ function dibujarFondo() {
 // ============================================
 // DIBUJAR JUGADOR
 // ============================================
-
 function dibujarJugador() {
 
     const x = jugador.x;
@@ -970,7 +989,6 @@ function dibujarJugador() {
 // ============================================
 // DIBUJAR DISPAROS
 // ============================================
-
 function dibujarDisparos() {
 
     for (const disparo of disparos) {
@@ -997,7 +1015,6 @@ function dibujarDisparos() {
 // ============================================
 // DIBUJAR ENEMIGOS
 // ============================================
-
 function dibujarEnemigos() {
 
     for (const enemigo of enemigos) {
@@ -1066,7 +1083,6 @@ function dibujarEnemigos() {
 // ============================================
 // DIBUJAR PARTÍCULAS
 // ============================================
-
 function dibujarParticulas() {
 
     for (const particula of particulas) {
@@ -1124,6 +1140,28 @@ botonReiniciar.addEventListener(
     "click",
     iniciarJuego
 );
+
+botonPausa.addEventListener(
+    "click", 
+    pausarJuego
+);
+
+
+function pausarJuego() {
+    if (!juegoActivo) {
+        return;
+    }
+
+    juegoPausado = !juegoPausado;
+
+    if (juegoPausado) {
+        botonPausa.textContent = "Reanudar";
+    } else {
+        botonPausa.textContent = "Pausar";
+        ultimoTiempo = performance.now();
+        requestAnimationFrame(bucleJuego);
+    }
+}
 
 
 // ============================================

@@ -196,6 +196,26 @@
     font-size: 14px;
 }
 
+.controles_partida {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#botonPausa {
+    padding: 8px 20px;
+    background-color: #00bfff;
+    color: #02040a;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#botonPausa:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
 /* =========================
    MÓVIL
