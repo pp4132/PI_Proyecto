@@ -22,29 +22,33 @@
 
             <h1>Inicio de sesión</h1>
 
-            <form>
+            <form action="Model_db/Logeo.php" method="POST">
                 <div class="campo">
-
-                    <label for="correo">
-                        Correo electrónico
-                    </label>
+                    <label for="correo">Correo electrónico</label>
                     <input
-                        type="email" id="correo" name="correo"
-                        placeholder="correo@ejemplo.com" required>
-
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="correo@ejemplo.com"
+                        autocomplete="email"
+                        required
+                    >
                 </div>
 
                 <div class="campo">
-                    <label for="contrasena">
-                        Contraseña
-                    </label>
-                    <input type="password" id="contrasena" name="contrasena" 
-                    placeholder="Contraseña" required>
-
+                    <label for="contrasena">Contraseña</label>
+                    <input
+                        type="password"
+                        id="contrasena"
+                        name="contrasena"
+                        placeholder="Contraseña"
+                        autocomplete="current-password"
+                        required
+                    >
                 </div>
 
                 <button type="submit" class="boton_login">
-                    Inicio de sesión
+                    Iniciar sesión
                 </button>
             </form>
 
