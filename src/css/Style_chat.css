@@ -1,3 +1,17 @@
+.btn-cerrar-sesion {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #D50032;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: #a50026;
+}
+
 .seccion_chat {
 
     width: 90%;
