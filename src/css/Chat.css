@@ -354,6 +354,21 @@
     }
 }
 
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nickname {
+    font-weight: bold;
+}
+
+.insignia-chat {
+    font-size: 20px;
+    cursor: help;
+}
+
 /* ========================================
    PANTALLAS MUY PEQUEÑAS
 ======================================== */

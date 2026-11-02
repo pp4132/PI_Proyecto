@@ -7,9 +7,19 @@ $idUsuario = usuarioActual();
 
 // Validar que el usuario siga activo.
 $stmt = $pdo->prepare(
-    "SELECT apodo, estatus
-     FROM usuario
-     WHERE id_usuario = :id"
+    "SELECT
+        u.apodo,
+        u.estatus,
+        i.nombre AS insignia,
+        i.icono
+     FROM usuario u
+     LEFT JOIN usuario_insignia ui
+        ON u.id_usuario = ui.id_usuario
+     LEFT JOIN insignias i
+        ON ui.id_ins = i.id_ins
+     WHERE u.id_usuario = :id
+     ORDER BY i.puntos_necesarios DESC
+     LIMIT 1"
 );
 
 $stmt->execute(['id' => $idUsuario]);
@@ -92,7 +102,20 @@ function escapar($valor): string
 
         <p>
             Participando como
-            <strong><?= escapar($usuario['apodo']) ?></strong>
+
+            <strong>
+                <?= escapar($usuario['apodo']) ?>
+
+                <?php if (!empty($usuario['icono'])): ?>
+                    <img
+                        src="<?= escapar($usuario['icono']) ?>"
+                        alt="<?= escapar($usuario['insignia']) ?>"
+                        class="insignia-chat"
+                        title="<?= escapar($usuario['insignia']) ?>"
+                    >
+                <?php endif; ?>
+
+            </strong>
         </p>
 
         <a href="Conversaciones.php">

@@ -42,14 +42,30 @@
             tarjeta.appendChild(etiqueta);
         }
 
-        const encabezado = document.createElement('div');
+       const encabezado = document.createElement('div');
         encabezado.className = 'message-header';
 
+        // Apodo
         const apodo = document.createElement('span');
         apodo.className = 'nickname';
         apodo.textContent = mensaje.apodo || 'Usuario';
 
         encabezado.appendChild(apodo);
+
+        // Insignia
+        if (mensaje.icono_insignia) {
+
+            const insignia = document.createElement('span');
+
+            insignia.className = 'insignia-chat';
+
+            insignia.textContent = mensaje.icono_insignia;
+
+            insignia.title = mensaje.nombre_insignia;
+
+            encabezado.appendChild(insignia);
+        };
+
         tarjeta.appendChild(encabezado);
 
         const contenido = document.createElement('p');

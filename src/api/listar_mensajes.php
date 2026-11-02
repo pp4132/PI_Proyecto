@@ -57,14 +57,42 @@ try {
             c.fecha_creacion,
             c.id_padre,
             u.id_usuario,
-            u.apodo
-         FROM comentario c
-         INNER JOIN usuario u
+            u.apodo,
+            insignia.nombre AS nombre_insignia,
+            insignia.icono AS icono_insignia
+
+        FROM comentario c
+
+        INNER JOIN usuario u
             ON u.id_usuario = c.id_usuario
-         WHERE c.id_chat = :id_chat
-           AND u.estatus = 'activo'
-         ORDER BY c.fecha_creacion ASC,
-                  c.id_comentario ASC"
+
+        LEFT JOIN (
+            SELECT
+                ui.id_usuario,
+                i.nombre,
+                i.icono,
+                i.puntos_necesarios
+
+            FROM usuario_insignia ui
+
+            INNER JOIN insignias i
+                ON i.id_ins = ui.id_ins
+
+            WHERE i.puntos_necesarios = (
+                SELECT MAX(i2.puntos_necesarios)
+                FROM usuario_insignia ui2
+                INNER JOIN insignias i2
+                    ON i2.id_ins = ui2.id_ins
+                WHERE ui2.id_usuario = ui.id_usuario
+            )
+        ) insignia
+            ON insignia.id_usuario = u.id_usuario
+
+        WHERE c.id_chat = :id_chat
+        AND u.estatus = 'activo'
+
+        ORDER BY c.fecha_creacion ASC,
+                c.id_comentario ASC"
     );
 
     $stmt->execute(['id_chat' => $idChat]);
@@ -74,6 +102,7 @@ try {
         JSON_UNESCAPED_UNICODE |
         JSON_INVALID_UTF8_SUBSTITUTE
     );
+
 
 } catch (Throwable $e) {
     error_log('Error al listar mensajes: ' . $e->getMessage());
