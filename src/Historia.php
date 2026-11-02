@@ -59,16 +59,20 @@
                 <section id="introduccion">
                     <h2>Introducción</h2>
                     <p>
-                        En esta sección se presentará una
-                        introducción a la historia del béisbol
-                        en México.
+                        Un breve repaso sobre la historia del beisbol en tierras mexicanas, 
+                        comemzando con sus inicios en el siglo XIX hasta fechas más actuales.
                     </p>
                 </section>
 
                 <section id="origenes">
                     <h2>Orígenes</h2>
                     <p>
-                        El beisbol comenzó a difundirse en México durante la segunda mitad del siglo XIX. Su llegada se relaciona con comerciantes, marineros, trabajadores ferroviarios y viajeros que mantenían contacto con Estados Unidos. No existe un acuerdo absoluto sobre el primer partido celebrado en territorio mexicano, pues distintas regiones, entre ellas Veracruz, Nuevo León y la península de Yucatán, conservan relatos tempranos. Lo importante es que el deporte se extendió gradualmente desde los puertos y ciudades fronterizas hacia otras comunidades, donde aparecieron equipos aficionados y encuentros que reunían a familias y trabajadores.
+                        El beisbol comenzó a difundirse en México durante la segunda mitad 
+                        del siglo XIX. Su llegada se relaciona con comerciantes, 
+                        marineros, trabajadores ferroviarios y viajeros que mantenían 
+                        contacto con Estados Unidos. No existe un acuerdo absoluto sobre 
+                        el primer partido celebrado en territorio mexicano, pues distintas 
+                        regiones, entre ellas Veracruz, Nuevo León y la península de Yucatán, conservan relatos tempranos. Lo importante es que el deporte se extendió gradualmente desde los puertos y ciudades fronterizas hacia otras comunidades, donde aparecieron equipos aficionados y encuentros que reunían a familias y trabajadores.
                     </p>
                 </section>
 
