@@ -82,7 +82,7 @@ try {
     ]);
 
     // Redirigir al inicio de sesión tras el registro
-    echo('Location: /../Conversaciones.php');
+    header('Location: ../Conversaciones.php');
     exit;
 
 } catch (PDOException $e) {

@@ -1,4 +1,3 @@
-
 <?php
 require_once __DIR__ . '/auth/autenticación.php';
 require_once __DIR__ . '/conexion.php';
