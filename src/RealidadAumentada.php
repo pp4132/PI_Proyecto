@@ -12,6 +12,9 @@
 <body>
 
     <h1>Escaner</h1>
+    <a href="Equipos.php" class="boton_R" title="Regresar">
+        ⬅️
+    </a>
 
     <div id="camera-container">
     </div>

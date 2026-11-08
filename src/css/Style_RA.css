@@ -6,6 +6,40 @@
     box-sizing: border-box;
 }
 
+.boton_R {
+    position: fixed;
+
+    right: 90%;
+    bottom: 85%;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+
+    z-index: 999;
+
+    transition:
+        transform 0.2s ease,
+}
+
+.boton_R:hover {
+    background-color: #b8002b;
+    transform: scale(1.1);
+}
 
 html,
 body {
