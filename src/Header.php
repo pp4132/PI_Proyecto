@@ -1,6 +1,6 @@
 <header class="header_principal">
 
-    <a href="Index.php">
+    <a href="Index.php" class="logo_header">
         <img class="img_header" src="img/Logo ND.jpeg" alt="Logo de la página">
     </a>
 
