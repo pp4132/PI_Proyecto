@@ -1,0 +1,34 @@
+# Grab3D 3D Converter
+
+newmtl Base_Texture
+Kd 1 1 1
+Ks 0.5 0.5 0.5
+Ns 380.25
+illum 2
+map_Kd trophy_model_Base_Texture_baseColor.png
+Pr 0.35
+Pm 0
+norm trophy_model_Base_Texture_normal.png
+map_Bump trophy_model_Base_Texture_normal.png
+
+newmtl Cup_Texture
+Kd 1 1 1
+Ks 0.5 0.5 0.5
+Ns 380.25
+illum 2
+map_Kd trophy_model_Cup_Texture_baseColor.png
+Pr 0.35
+Pm 1
+norm trophy_model_Cup_Texture_normal.png
+map_Bump trophy_model_Cup_Texture_normal.png
+
+newmtl Handles_Texture
+Kd 1 1 1
+Ks 0.5 0.5 0.5
+Ns 380.25
+illum 2
+map_Kd trophy_model_Handles_Texture_baseColor.png
+Pr 0.35
+Pm 1
+norm trophy_model_Handles_Texture_normal.png
+map_Bump trophy_model_Handles_Texture_normal.png

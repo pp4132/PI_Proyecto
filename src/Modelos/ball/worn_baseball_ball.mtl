@@ -1,0 +1,14 @@
+# Grab3D 3D Converter
+
+newmtl lambert1
+Kd 1 1 1
+Ks 0.5 0.5 0.5
+Ns 0
+illum 2
+map_Kd worn_baseball_ball_lambert1_baseColor.png
+Pr 1
+Pm 1
+map_Pr worn_baseball_ball_lambert1_roughness.png
+map_Pm worn_baseball_ball_lambert1_metallic.png
+norm worn_baseball_ball_lambert1_normal.png
+map_Bump worn_baseball_ball_lambert1_normal.png

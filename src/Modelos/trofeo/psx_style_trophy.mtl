@@ -1,0 +1,17 @@
+# Grab3D 3D Converter
+
+newmtl Material.001
+Kd 0.202529 0.202529 0.202529
+Ks 0.5 0.5 0.5
+Ns 225
+illum 2
+Pr 0.5
+Pm 0
+
+newmtl Material.002
+Kd 0.906345 0.766022 0.314085
+Ks 0.5 0.5 0.5
+Ns 225
+illum 2
+Pr 0.5
+Pm 1

@@ -33,7 +33,7 @@ const captureButton =
 const mindarThree =
     new MindARThree({
         container: document.getElementById("camera-container"),
-        imageTargetSrc: "targets.mind"
+        imageTargetSrc: "Logos.mind"
             //el archivo que contiene las imágenes que se usarán como marcador,
             //pueden ser varias imágenes, pero por ahora solo son 3.
 });
@@ -47,17 +47,9 @@ let animationEnabled = false;
 const { renderer, scene, camera } = mindarThree;
 renderer.preserveDrawingBuffer = true;
 
-// Modelos para los targets
-/*Para usar un nuevo modelo solo se tiene que ingresar en el siguiente formato:
-    {
-        index: 1, //es un arreglo
-        obj: "Modelos/esfera/esfera.obj" //Aqui van las rutas
-        mtl: "Modelos/esfera/esfera.mtl"
-        scale: 0.5,
-        particleColor: 0xFFFFF, //El color de las particulas, de momento cada párticula está relacionada con un modelo
-        ParticleCount: 100 //el número de partículas
-    } 
-*/
+//Orden de los target6s
+//Acereros, Algodoneros, Caliente, Charros, Dorados, Rieleros, Saraperos, Sultanes, Tecolotes, Toros
+
 const targets = [
 
     // 🔥 FUEGO
@@ -71,7 +63,7 @@ const targets = [
             type: "fire",
             color: 0xFF4500,
             count: 3500,
-            size: 0.08
+            size: 0.1
         }
     },
 
@@ -86,7 +78,7 @@ const targets = [
             type: "fire",
             color: 0x00FF69,
             count: 4500,
-            size: 0.50
+            size: 0.5
         }
     },
 
@@ -101,7 +93,105 @@ const targets = [
             type: "water",
             color: 0x00BFFF,
             count: 3500,
-            size: 0.06
+            size: 0.1
+        }
+    },
+
+    {
+        index: 3,
+        obj: "Modelos/trofeo/psx_style_trophy.obj",
+        mtl: "Modelos/trofeo/psx_style_trophy.mtl",
+        scale: 1.0,
+
+        particles: {
+            type: "water",
+            color: 0XFAFF00,
+            count: 3500,
+            size: 0.1
+        }
+    },
+
+    {
+        index: 4,
+        obj: "Modelos/bate/bate.obj",
+        mtl: "Modelos/bate/bate.mtl",
+        scale: 1.5,
+
+        particles: {
+            type: "water",
+            color: 0X5900FF,
+            count: 3500,
+            size: 0.1
+        }
+    },
+
+    {
+        index: 5,
+        obj: "Modelos/ball/worn_baseball_ball.obj",
+        mtl: "Modelos/ball/worn_baseball_ball.mtl",
+        scale: 1.5,
+
+        particles: {
+            type: "water",
+            color: 0X5900FF,
+            count: 3500,
+            size: 0.1
+        }
+    },
+
+    {
+        index: 6,
+        obj: "Modelos/trofeo2/trophy_model.obj",
+        mtl: "Modelos/trofeo2/trophy_model.mtl",
+        scale: 2.0,
+
+        particles: {
+            type: "water",
+            color: 0XF200FF,
+            count: 3500,
+            size: 0.1
+        }
+    },
+
+    {
+        index: 7,
+        obj: "Modelos/casco/baseball_helmet__game-ready_sports_asset.obj",
+        mtl: "Modelos/casco/baseball_helmet__game-ready_sports_asset.mtl",
+        scale: 2.0,
+
+        particles: {
+            type: "water",
+            color: 0XF200FF,
+            count: 3500,
+            size: 0.1
+        }
+    },
+
+    {
+        index: 8,
+        obj: "Modelos/bat2/bat2.obj",
+        mtl: "Modelos/bat2/bat2.mtl",
+        scale: 2.0,
+
+        particles: {
+            type: "fire",
+            color: 0X000000,
+            count: 3500,
+            size: 0.3
+        }
+    },
+
+    {
+        index: 9,
+        obj: "Modelos/esfera/esfera.obj",
+        mtl: "Modelos/esfera/esfera.mtl",
+        scale: 0.5,
+
+        particles: {
+            type: "smoke",
+            color: 0x00000,
+            count: 3600,
+            size: 1.0
         }
     }
 
@@ -335,7 +425,7 @@ function crearParticulas(target, anchor) {
     // El humo no debe brillar demasiado
     if (type === "smoke") {
         blending = THREE.NormalBlending;
-        opacity = 0.35;
+        opacity = 0.01;
     }
 
 

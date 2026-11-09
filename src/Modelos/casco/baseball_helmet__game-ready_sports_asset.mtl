@@ -1,0 +1,14 @@
+# Grab3D 3D Converter
+
+newmtl Material.001
+Kd 1 1 1
+Ks 0.5 0.5 0.5
+Ns 0
+illum 2
+map_Kd baseball_helmet__game-ready_sports_asset_Material.001_baseColor.png
+Pr 1
+Pm 1
+map_Pr baseball_helmet__game-ready_sports_asset_Material.001_roughness.png
+map_Pm baseball_helmet__game-ready_sports_asset_Material.001_metallic.png
+norm baseball_helmet__game-ready_sports_asset_Material.001_normal.png
+map_Bump baseball_helmet__game-ready_sports_asset_Material.001_normal.png

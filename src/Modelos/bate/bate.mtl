@@ -1,0 +1,35 @@
+# Blender 3.6.9 MTL File: 'None'
+# www.blender.org
+
+newmtl bande_tissus
+Ns 112.896019
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd baseball_bat_bande_tissus_baseColor.png
+map_Bump baseball_bat_bande_tissus_normal.png
+
+newmtl base_tissus
+Ns 113.140724
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd baseball_bat_base_tissus_baseColor.png
+map_Bump baseball_bat_base_tissus_normal.png
+
+newmtl bois_texture
+Ns 526.284912
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd baseball_bat_bois_texture_baseColor.png
+map_Bump baseball_bat_bois_texture_normal.png
