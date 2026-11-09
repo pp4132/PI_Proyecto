@@ -227,6 +227,72 @@ tr:nth-child(even) {
 }
 
 
+/* Grupos de jugadores */
+.grupo_jugadores {
+    margin-bottom: 35px;
+}
+
+.grupo_jugadores h3 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #777;
+}
+
+/* Contenedor */
+
+.contenedor_jugadores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 20px;
+}
+
+/* Tarjeta */
+
+.jugador {
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f2f2f2;
+    transition: transform 0.2s;
+}
+
+.jugador:hover {
+    transform: translateY(-5px);
+}
+
+/* Fotografía */
+.jugador img {
+    width: 100%;
+    height: 190px;
+    object-fit:scale-down;
+    object-position: center top;
+    border-radius: 8px;
+}
+
+/* Fotografía pendiente */
+.sin_fotografia {
+    width: 100%;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ddd;
+    color: #555;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Nombre */
+.jugador h4 {
+    margin: 10px 0 5px;
+}
+
+.jugador p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+
 /* RESPONSIVE */
 
 @media(max-width: 750px) {

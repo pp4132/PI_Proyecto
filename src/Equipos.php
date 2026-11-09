@@ -36,7 +36,7 @@
                 <div class="contenedor_equipos">
 
                     <!-- Sultanes -->
-                    <a href="EquipoIndividual.php" class="tarjeta_equipo">
+                    <a href="Sultanes.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Sultanes.svg"
@@ -57,7 +57,7 @@
 
 
                     <!-- Acereros -->
-                    <a href="Equipos/Acereros.html" class="tarjeta_equipo">
+                    <a href="Acereros.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Acereros.svg"
@@ -78,7 +78,7 @@
 
 
                     <!-- Saraperos -->
-                    <a href="Equipos/Saraperos.html" class="tarjeta_equipo">
+                    <a href="Saraperos.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Saraperos.jpg"
@@ -99,7 +99,7 @@
 
 
                     <!-- Algodoneros -->
-                    <a href="Equipos/Algodoneros.html" class="tarjeta_equipo">
+                    <a href="Algodoneros.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Algodoneros.svg"
@@ -119,7 +119,7 @@
 
 
                     <!-- Tecos -->
-                    <a href="Equipos/Tecos.html" class="tarjeta_equipo">
+                    <a href="Tecos.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Tecolotes.png"
@@ -140,7 +140,7 @@
 
 
                     <!-- Toros -->
-                    <a href="Equipos/Toros.html" class="tarjeta_equipo">
+                    <a href="Toros.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Toros.png"
@@ -161,7 +161,7 @@
 
 
                     <!-- Caliente -->
-                    <a href="Equipos/Caliente.html" class="tarjeta_equipo">
+                    <a href="Caliente.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Caliente.svg"
@@ -181,7 +181,7 @@
 
 
                     <!-- Rieleros -->
-                    <a href="Equipos/Rieleros.html" class="tarjeta_equipo">
+                    <a href="Rieleros.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Rieleros.png"
@@ -202,7 +202,7 @@
 
 
                     <!-- Dorados -->
-                    <a href="Equipos/Dorados.html" class="tarjeta_equipo">
+                    <a href="Dorados.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Dorados.svg"
@@ -222,7 +222,7 @@
 
 
                     <!-- Charros -->
-                    <a href="Equipos/Charros.html" class="tarjeta_equipo">
+                    <a href="Charros.php" class="tarjeta_equipo">
 
                         <div class="logo_equipo">
                             <img src="img/Equipos/Charros.svg"

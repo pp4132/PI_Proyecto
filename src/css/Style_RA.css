@@ -198,21 +198,3 @@ button:hover {
 }
 
 
-/* =====================================
-   BOTÓN DESCARGAR
-   ===================================== */
-
-#download {
-
-    display: none;
-
-    background: #444;
-
-}
-
-
-#download:hover {
-
-    background: #666;
-
-}

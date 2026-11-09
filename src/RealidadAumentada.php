@@ -36,11 +36,7 @@
         </button>
 
         <button id="capture">
-            📸
-        </button>
-
-        <button id="download">
-            💾 Descargar captura
+            📸 Screenshot
         </button>
 
     </div>

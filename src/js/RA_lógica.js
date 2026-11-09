@@ -28,9 +28,6 @@ const animationButton =
 const captureButton =
     document.getElementById("capture");
 
-const downloadButton =
-    document.getElementById("download");
-
 
 // MINDAR
 const mindarThree =
@@ -631,10 +628,12 @@ stopCameraButton.addEventListener(
     }
 );
 
-// Captura de imagen
+
+// CAPTURA Y ENVÍO A LA GALERÍA
+
 captureButton.addEventListener(
     "click",
-    () => {
+    async () => {
 
         const container =
             document.getElementById("camera-container");
@@ -643,70 +642,136 @@ captureButton.addEventListener(
             container.querySelector("video");
 
         if (!video) {
-            alert(
-                "La cámara no está activa."
-            );
+            alert("La cámara no está activa.");
             return;
         }
 
-        // Dimensionar
-        const width = container.clientWidth;
-        const height = container.clientHeight;
+        if (!video.videoWidth || !video.videoHeight) {
+            alert("La cámara todavía no está lista.");
+            return;
+        }
 
-        //Canvas final
-        const canvas =
-            document.createElement("canvas");
+        captureButton.disabled = true;
 
-        canvas.width = width;
-        canvas.height = height;
+        try {
 
-        const ctx = canvas.getContext("2d");
+            // Dimensiones del contenedor
+            const width = container.clientWidth;
+            const height = container.clientHeight;
 
-        //Redibujar cámara
-        dibujarVideoCover(
-            ctx,
-            video,
-            0,
-            0,
-            width,
-            height
-        );
+            // Crear canvas
+            const canvas =
+                document.createElement("canvas");
 
-        //Renderizar THREE.JS
-        renderer.render(scene,camera);
+            canvas.width = width;
+            canvas.height = height;
 
-        //Copiar THREE.JS
-        const threeCanvas = renderer.domElement;
+            const ctx = canvas.getContext("2d");
 
-        ctx.drawImage(
-            threeCanvas,
-            0,
-            0,
-            threeCanvas.width,
-            threeCanvas.height,
-            0,
-            0,
-            width,
-            height
-        );
+            // Dibujar cámara
+            dibujarVideoCover(
+                ctx,
+                video,
+                0,
+                0,
+                width,
+                height
+            );
 
-        //Se genera la imagen
-        const image = canvas.toDataURL("image/png");
+            // Renderizar Three.js
+            renderer.render(scene, camera);
 
-        //Botón para descargar
-        downloadButton.style.display = "inline-block";
-        alert("Ya está su imagen");
+            const threeCanvas = renderer.domElement;
 
-        //Descarga
-        downloadButton.onclick =
-            () => {
-                const link = document.createElement("a");
-                link.download = "realidad-aumentada.png";
-                link.href = image;
-                link.click();
-        };
+            ctx.drawImage(
+                threeCanvas,
+                0,
+                0,
+                threeCanvas.width,
+                threeCanvas.height,
+                0,
+                0,
+                width,
+                height
+            );
+
+            // Convertir a PNG
+            const blob = await new Promise(resolve => {
+
+                canvas.toBlob(
+                    resolve,
+                    "image/png"
+                );
+
+            });
+
+            if (!blob) {
+                throw new Error(
+                    "No se pudo generar la imagen."
+                );
+            }
+
+            // Preparar archivo
+            const datos = new FormData();
+
+            datos.append(
+                "captura",
+                blob,
+                "realidad-aumentada.png"
+            );
+
+            // Enviar a PHP
+            const respuesta = await fetch(
+                "guardar_captura.php",
+                {
+                    method: "POST",
+                    body: datos
+                }
+            );
+
+            const resultado = await respuesta.json();
+
+            if (!respuesta.ok || !resultado.success) {
+
+                throw new Error(
+                    resultado.message ||
+                    "No se pudo guardar la captura."
+                );
+
+            }
+
+            // Ir a la galería
+            alert("¡Captura guardada correctamente!");
+
+            window.location.href =
+                "Galeria.php?captura=guardada";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Error guardando captura:",
+                error
+            );
+
+            alert(
+                error.message ||
+                "Ocurrió un error al guardar la imagen."
+            );
+
+        }
+
+        finally {
+
+            captureButton.disabled = false;
+
+        }
+
     }
 );
+
+
 
 //Botón de partículas
 particleButton.addEventListener("click", () => {
